@@ -60,25 +60,8 @@ export function Portfolio() {
             <div
               className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/10] mb-6 border border-aluminum"
             >
-              {/* Preview real do site renderizado em viewport desktop (1440px) e escalado para caber no card */}
-              <div
-                className="absolute top-0 left-0 origin-top-left"
-                style={{
-                  width: "1440px",
-                  height: "900px",
-                  transform: "scale(calc(100% / 1440 * var(--card-w, 600)))",
-                }}
-              >
-                <iframe
-                  src={p.url}
-                  title={`Preview ${p.title}`}
-                  loading="lazy"
-                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
-                  referrerPolicy="no-referrer"
-                  scrolling="yes"
-                  className="block w-full h-full border-0 bg-surface"
-                />
-              </div>
+              {/* Preview real do site renderizado em viewport desktop e escalado para caber no card */}
+              <DesktopPreview url={p.url} title={`Preview ${p.title}`} />
 
               {/* Badge de resultado (não bloqueia o iframe) */}
               <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 pointer-events-none">

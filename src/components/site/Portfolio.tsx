@@ -88,20 +88,18 @@ export function Portfolio() {
         {projects.map((p) => (
           <article key={p.title} className={`group ${p.offset ? "md:mt-24" : ""}`}>
             <div
-              className="block relative bg-mist rounded-xl overflow-hidden aspect-[16/11] mb-6 ring-1 ring-ink/5 transition-all duration-500 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.18)] group-hover:-translate-y-1"
+              className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/11] mb-6 border border-aluminum transition-all duration-500 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.18)] group-hover:-translate-y-1"
             >
               {/* Preview real do site em viewport nativa para permitir scroll dentro do card */}
-              <div className="absolute inset-0 overflow-hidden bg-surface">
-                <iframe
-                  src={p.url}
-                  title={`Preview ${p.title}`}
-                  loading="lazy"
-                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
-                  referrerPolicy="no-referrer"
-                  scrolling="yes"
-                  className="size-full border-0 bg-surface"
-                />
-              </div>
+              <iframe
+                src={p.url}
+                title={`Preview ${p.title}`}
+                loading="lazy"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+                referrerPolicy="no-referrer"
+                scrolling="yes"
+                className="absolute inset-0 block w-full h-full border-0 bg-surface"
+              />
 
               {/* Badge de resultado (não bloqueia o iframe) */}
               <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 pointer-events-none">

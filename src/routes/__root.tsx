@@ -29,7 +29,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vértice — Sites de alta performance para marcas exigentes" },
+      { title: "Vértice — Sites de alta performance" },
       {
         name: "description",
         content:
@@ -43,6 +43,12 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Vértice — Sites de alta performance" },
+      { name: "description", content: "A professional website showcasing services and a dynamic portfolio of past projects." },
+      { property: "og:description", content: "A professional website showcasing services and a dynamic portfolio of past projects." },
+      { name: "twitter:description", content: "A professional website showcasing services and a dynamic portfolio of past projects." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/89990deb-970a-4eb5-a71f-2aca260b82e0/id-preview-8a26f70e--8a94f749-0b6c-4e33-a47b-de5d4de230e5.lovable.app-1777360651278.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/89990deb-970a-4eb5-a71f-2aca260b82e0/id-preview-8a26f70e--8a94f749-0b6c-4e33-a47b-de5d4de230e5.lovable.app-1777360651278.png" },
     ],
     links: [
       {

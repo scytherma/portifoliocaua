@@ -57,18 +57,27 @@ export function Portfolio() {
             className={`group flex flex-col rounded-2xl border border-aluminum bg-canvas p-4 sm:p-5 transition-all duration-300 hover:border-ink/30 hover:-translate-y-1 ${p.offset ? "md:mt-24" : ""}`}
           >
             <div
-              className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/11] mb-6 border border-aluminum"
+              className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/10] mb-6 border border-aluminum"
             >
-              {/* Preview real do site em viewport nativa para permitir scroll dentro do card */}
-              <iframe
-                src={p.url}
-                title={`Preview ${p.title}`}
-                loading="lazy"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
-                referrerPolicy="no-referrer"
-                scrolling="yes"
-                className="absolute inset-0 block w-full h-full border-0 bg-surface"
-              />
+              {/* Preview real do site renderizado em viewport desktop (1440px) e escalado para caber no card */}
+              <div
+                className="absolute top-0 left-0 origin-top-left"
+                style={{
+                  width: "1440px",
+                  height: "900px",
+                  transform: "scale(calc(100% / 1440 * var(--card-w, 600)))",
+                }}
+              >
+                <iframe
+                  src={p.url}
+                  title={`Preview ${p.title}`}
+                  loading="lazy"
+                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+                  referrerPolicy="no-referrer"
+                  scrolling="yes"
+                  className="block w-full h-full border-0 bg-surface"
+                />
+              </div>
 
               {/* Badge de resultado (não bloqueia o iframe) */}
               <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 pointer-events-none">

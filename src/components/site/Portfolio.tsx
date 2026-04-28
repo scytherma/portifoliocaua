@@ -31,6 +31,14 @@ const projects: Project[] = [
     result: "Funil de vendas otimizado para alta conversão",
     offset: true,
   },
+  {
+    title: "Klareco",
+    category: "Clínica odontológica",
+    year: "2024",
+    tags: ["Saúde", "Odontologia"],
+    url: "https://klareco.lovable.app",
+    result: "Presença digital alinhada à experiência da clínica",
+  },
 ];
 
 export function Portfolio() {

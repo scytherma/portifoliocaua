@@ -39,6 +39,15 @@ const projects: Project[] = [
     url: "https://klareco.lovable.app",
     result: "Presença digital alinhada à experiência da clínica",
   },
+  {
+    title: "Packify",
+    category: "Pack de imagens para vendedores",
+    year: "2024",
+    tags: ["Bio link", "E-commerce"],
+    url: "https://oliveiraecom.com/bio-link/",
+    result: "Bio link otimizado para conversão de vendedores",
+    offset: true,
+  },
 ];
 
 export function Portfolio() {

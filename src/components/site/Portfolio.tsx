@@ -90,21 +90,16 @@ export function Portfolio() {
             <div
               className="block relative bg-mist rounded-xl overflow-hidden aspect-[16/11] mb-6 ring-1 ring-ink/5 transition-all duration-500 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.18)] group-hover:-translate-y-1"
             >
-              {/* Preview real do site, escalado para caber no card — interativo (scroll permitido) */}
-              <div className="absolute inset-0 origin-top-left">
+              {/* Preview real do site em viewport nativa para permitir scroll dentro do card */}
+              <div className="absolute inset-0 overflow-hidden bg-surface">
                 <iframe
                   src={p.url}
                   title={`Preview ${p.title}`}
                   loading="lazy"
-                  sandbox="allow-same-origin allow-scripts"
+                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
                   referrerPolicy="no-referrer"
-                  className="border-0 bg-surface"
-                  style={{
-                    width: "1440px",
-                    height: "990px",
-                    transform: "scale(0.42)",
-                    transformOrigin: "top left",
-                  }}
+                  scrolling="yes"
+                  className="size-full border-0 bg-surface"
                 />
               </div>
 

@@ -5,6 +5,8 @@ type Props = {
   title: string;
   /** Largura virtual de desktop em px (default 1440) */
   desktopWidth?: number;
+  /** Altura virtual usada para permitir scroll visual do preview */
+  desktopHeight?: number;
 };
 
 /**
@@ -17,20 +19,19 @@ export function DesktopPreview({
   url,
   title,
   desktopWidth = 1440,
+  desktopHeight = 2200,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState({ scale: 0.4, height: 900 });
+  const [scale, setScale] = useState(0.4);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
     const update = () => {
-      const { width, height } = el.getBoundingClientRect();
-      if (width > 0 && height > 0) {
-        const scale = width / desktopWidth;
-        // altura virtual do iframe necessária para preencher o container
-        setSize({ scale, height: height / scale });
+      const { width } = el.getBoundingClientRect();
+      if (width > 0) {
+        setScale(width / desktopWidth);
       }
     };
 
@@ -43,24 +44,28 @@ export function DesktopPreview({
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 overflow-hidden bg-surface"
+      className="absolute inset-0 overflow-y-auto overflow-x-hidden overscroll-contain bg-surface"
     >
-      <iframe
-        src={url}
-        title={title}
-        loading="lazy"
-        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
-        referrerPolicy="no-referrer"
-        scrolling="yes"
-        className="block border-0 bg-surface origin-top-left"
-        style={{
-          width: `${desktopWidth}px`,
-          height: `${size.height}px`,
-          transform: `scale(${size.scale})`,
-          pointerEvents: "auto",
-          touchAction: "auto",
-        }}
-      />
+      <div
+        className="relative w-full"
+        style={{ height: `${desktopHeight * scale}px` }}
+      >
+        <iframe
+          src={url}
+          title={title}
+          loading="lazy"
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+          referrerPolicy="no-referrer"
+          scrolling="no"
+          className="absolute left-0 top-0 block border-0 bg-surface origin-top-left"
+          style={{
+            width: `${desktopWidth}px`,
+            height: `${desktopHeight}px`,
+            transform: `scale(${scale})`,
+            pointerEvents: "none",
+          }}
+        />
+      </div>
     </div>
   );
 }

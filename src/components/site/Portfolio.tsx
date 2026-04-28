@@ -14,23 +14,6 @@ type Project = {
 // O preview carrega o site dentro de um iframe — o visitante pode rolar e interagir.
 const projects: Project[] = [
   {
-    title: "Lumina Capital",
-    category: "Plataforma de investimento institucional",
-    year: "2024",
-    tags: ["Fintech", "Web App"],
-    url: "https://stripe.com",
-    result: "+62% em leads qualificados em 90 dias",
-  },
-  {
-    title: "Maison L'Aura",
-    category: "E-commerce de alta perfumaria",
-    year: "2024",
-    tags: ["E-commerce", "Direção de arte"],
-    url: "https://www.aesop.com",
-    result: "Ticket médio dobrado no primeiro trimestre",
-    offset: true,
-  },
-  {
     title: "Terapeuta Fernanda",
     category: "Massagista · Terapeuta somática",
     year: "2024",
@@ -39,38 +22,13 @@ const projects: Project[] = [
     result: "+38% de agendamentos online no mês 1",
   },
   {
-    title: "Casa Dom",
-    category: "Restaurante autoral",
-    year: "2023",
-    tags: ["Hospitalidade", "Reservas"],
-    url: "https://www.eleven-madison.com",
-    result: "Lista de espera permanente em 2 meses",
-    offset: true,
-  },
-  {
-    title: "Linear Studio",
-    category: "SaaS B2B em fase de tração",
-    year: "2024",
-    tags: ["SaaS", "Landing"],
-    url: "https://linear.app",
-    result: "CAC reduzido em 41% após o relançamento",
-  },
-  {
-    title: "Atelier 9",
-    category: "Escritório de arquitetura",
-    year: "2023",
-    tags: ["Portfólio", "Editorial"],
-    url: "https://bjarkeingels.com",
-    result: "3 projetos premium fechados em 30 dias",
-    offset: true,
-  },
-  {
     title: "Ecomfy Oficial",
     category: "Treinamento de e-commerce",
     year: "2024",
     tags: ["Educação", "Conversão"],
     url: "https://ecomfyoficial.com.br/home/",
     result: "Funil de vendas otimizado para alta conversão",
+    offset: true,
   },
 ];
 

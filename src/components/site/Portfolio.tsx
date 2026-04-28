@@ -55,10 +55,10 @@ export function Portfolio() {
         {projects.map((p) => (
           <article
             key={p.title}
-            className={`group flex flex-col rounded-2xl border border-aluminum bg-canvas p-4 sm:p-5 transition-all duration-300 hover:border-ink/30 hover:-translate-y-1 ${p.offset ? "md:mt-24" : ""}`}
+            className={`group flex flex-col transition-all duration-300 hover:-translate-y-1 ${p.offset ? "md:mt-24" : ""}`}
           >
             <div
-              className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/10] mb-6 border border-aluminum"
+              className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/10] mb-6 border border-aluminum group-hover:border-ink/30 transition-colors"
             >
               {/* Preview real do site renderizado em viewport desktop e escalado para caber no card */}
               <DesktopPreview url={p.url} title={`Preview ${p.title}`} />

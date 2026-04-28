@@ -64,6 +64,14 @@ const projects: Project[] = [
     result: "3 projetos premium fechados em 30 dias",
     offset: true,
   },
+  {
+    title: "Ecomfy Oficial",
+    category: "Treinamento de e-commerce",
+    year: "2024",
+    tags: ["Educação", "Conversão"],
+    url: "https://ecomfyoficial.com.br/home/",
+    result: "Funil de vendas otimizado para alta conversão",
+  },
 ];
 
 export function Portfolio() {

@@ -87,15 +87,11 @@ export function Portfolio() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 sm:gap-y-24">
         {projects.map((p) => (
           <article key={p.title} className={`group ${p.offset ? "md:mt-24" : ""}`}>
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
               className="block relative bg-mist rounded-xl overflow-hidden aspect-[16/11] mb-6 ring-1 ring-ink/5 transition-all duration-500 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.18)] group-hover:-translate-y-1"
-              aria-label={`Abrir site ${p.title} em nova aba`}
             >
-              {/* Preview real do site, escalado para caber no card */}
-              <div className="absolute inset-0 origin-top-left pointer-events-none md:pointer-events-auto">
+              {/* Preview real do site, escalado para caber no card — interativo (scroll permitido) */}
+              <div className="absolute inset-0 origin-top-left">
                 <iframe
                   src={p.url}
                   title={`Preview ${p.title}`}
@@ -112,24 +108,25 @@ export function Portfolio() {
                 />
               </div>
 
-              {/* Camada de captura de clique para abrir em nova aba (desativa interação no iframe) */}
-              <div className="absolute inset-0 z-10" aria-hidden />
-
-              {/* Badge de resultado */}
-              <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+              {/* Badge de resultado (não bloqueia o iframe) */}
+              <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 pointer-events-none">
                 <div className="bg-surface/95 backdrop-blur-md border border-aluminum px-4 py-2.5 rounded-full text-xs font-medium text-ink inline-flex items-center gap-2 shadow-lg">
                   <span className="size-1.5 rounded-full bg-emerald-500" />
                   {p.result}
                 </div>
               </div>
 
-              {/* Indicador "abrir site" */}
-              <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="bg-ink text-canvas text-[10px] uppercase tracking-[0.15em] font-medium px-3 py-1.5 rounded-full">
-                  Abrir site ↗
-                </div>
-              </div>
-            </a>
+              {/* Botão real "abrir site" — único elemento clicável sobre o iframe */}
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Abrir site ${p.title} em nova aba`}
+                className="absolute top-3 right-3 z-20 bg-ink text-canvas text-[10px] uppercase tracking-[0.15em] font-medium px-3 py-1.5 rounded-full opacity-90 hover:opacity-100 shadow-md"
+              >
+                Abrir site ↗
+              </a>
+            </div>
 
             <div className="flex items-start justify-between gap-4">
               <div>

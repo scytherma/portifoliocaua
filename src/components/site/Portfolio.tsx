@@ -52,9 +52,12 @@ export function Portfolio() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 sm:gap-y-24">
         {projects.map((p) => (
-          <article key={p.title} className={`group ${p.offset ? "md:mt-24" : ""}`}>
+          <article
+            key={p.title}
+            className={`group flex flex-col rounded-2xl border border-aluminum bg-canvas p-4 sm:p-5 transition-all duration-300 hover:border-ink/30 hover:-translate-y-1 ${p.offset ? "md:mt-24" : ""}`}
+          >
             <div
-              className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/11] mb-6 border border-aluminum transition-all duration-500 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.18)] group-hover:-translate-y-1"
+              className="relative isolate bg-surface rounded-xl overflow-hidden aspect-[16/11] mb-6 border border-aluminum"
             >
               {/* Preview real do site em viewport nativa para permitir scroll dentro do card */}
               <iframe
@@ -87,7 +90,7 @@ export function Portfolio() {
               </a>
             </div>
 
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4 px-1">
               <div>
                 <h3 className="font-serif text-2xl sm:text-3xl tracking-tight text-ink">{p.title}</h3>
                 <p className="text-muted-foreground text-sm mt-1.5 mb-4">{p.category}</p>

@@ -51,12 +51,14 @@ export function DesktopPreview({
         loading="lazy"
         sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
         referrerPolicy="no-referrer"
-        scrolling="no"
+        scrolling="yes"
         className="block border-0 bg-surface origin-top-left"
         style={{
           width: `${desktopWidth}px`,
           height: `${size.height}px`,
           transform: `scale(${size.scale})`,
+          pointerEvents: "auto",
+          touchAction: "auto",
         }}
       />
     </div>

@@ -1,4 +1,5 @@
 import { whatsappLink } from "@/lib/whatsapp";
+import { DesktopPreview } from "./DesktopPreview";
 
 type Project = {
   title: string;

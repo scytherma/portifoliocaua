@@ -22,16 +22,20 @@ export function DesktopPreview({
   desktopHeight = 2200,
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(0.4);
+  const [viewport, setViewport] = useState({ scale: 0.4, frameHeight: desktopHeight });
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
     const update = () => {
-      const { width } = el.getBoundingClientRect();
-      if (width > 0) {
-        setScale(width / desktopWidth);
+      const { width, height } = el.getBoundingClientRect();
+      if (width > 0 && height > 0) {
+        const nextScale = width / desktopWidth;
+        setViewport({
+          scale: nextScale,
+          frameHeight: Math.max(height / nextScale, desktopHeight / 3),
+        });
       }
     };
 
@@ -44,28 +48,24 @@ export function DesktopPreview({
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 overflow-y-auto overflow-x-hidden overscroll-contain bg-surface"
+      className="absolute inset-0 overflow-hidden bg-surface"
     >
-      <div
-        className="relative w-full"
-        style={{ height: `${desktopHeight * scale}px` }}
-      >
-        <iframe
-          src={url}
-          title={title}
-          loading="lazy"
-          sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
-          referrerPolicy="no-referrer"
-          scrolling="no"
-          className="absolute left-0 top-0 block border-0 bg-surface origin-top-left"
-          style={{
-            width: `${desktopWidth}px`,
-            height: `${desktopHeight}px`,
-            transform: `scale(${scale})`,
-            pointerEvents: "none",
-          }}
-        />
-      </div>
+      <iframe
+        src={url}
+        title={title}
+        loading="lazy"
+        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+        referrerPolicy="no-referrer"
+        scrolling="yes"
+        className="absolute left-0 top-0 block border-0 bg-surface origin-top-left"
+        style={{
+          width: `${desktopWidth}px`,
+          height: `${viewport.frameHeight}px`,
+          transform: `scale(${viewport.scale})`,
+          pointerEvents: "auto",
+          touchAction: "auto",
+        }}
+      />
     </div>
   );
 }

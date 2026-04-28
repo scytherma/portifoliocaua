@@ -1,28 +1,24 @@
 import { whatsappLink } from "@/lib/whatsapp";
-import fintech from "@/assets/portfolio-fintech.jpg";
-import fashion from "@/assets/portfolio-fashion.jpg";
-import clinic from "@/assets/portfolio-clinic.jpg";
-import restaurant from "@/assets/portfolio-restaurant.jpg";
-import saas from "@/assets/portfolio-saas.jpg";
-import architecture from "@/assets/portfolio-architecture.jpg";
 
 type Project = {
   title: string;
   category: string;
   year: string;
   tags: string[];
-  image: string;
+  url: string;
   result: string;
   offset?: boolean;
 };
 
+// 👉 Para trocar por sites reais seus, basta editar os campos `url` abaixo.
+// O preview carrega o site dentro de um iframe — o visitante pode rolar e interagir.
 const projects: Project[] = [
   {
     title: "Lumina Capital",
     category: "Plataforma de investimento institucional",
     year: "2024",
     tags: ["Fintech", "Web App"],
-    image: fintech,
+    url: "https://stripe.com",
     result: "+62% em leads qualificados em 90 dias",
   },
   {
@@ -30,7 +26,7 @@ const projects: Project[] = [
     category: "E-commerce de alta perfumaria",
     year: "2024",
     tags: ["E-commerce", "Direção de arte"],
-    image: fashion,
+    url: "https://www.aesop.com",
     result: "Ticket médio dobrado no primeiro trimestre",
     offset: true,
   },
@@ -39,7 +35,7 @@ const projects: Project[] = [
     category: "Clínica estética premium",
     year: "2024",
     tags: ["Saúde", "Agendamento"],
-    image: clinic,
+    url: "https://www.onemedical.com",
     result: "+38% de agendamentos online no mês 1",
   },
   {
@@ -47,7 +43,7 @@ const projects: Project[] = [
     category: "Restaurante autoral",
     year: "2023",
     tags: ["Hospitalidade", "Reservas"],
-    image: restaurant,
+    url: "https://www.eleven-madison.com",
     result: "Lista de espera permanente em 2 meses",
     offset: true,
   },
@@ -56,7 +52,7 @@ const projects: Project[] = [
     category: "SaaS B2B em fase de tração",
     year: "2024",
     tags: ["SaaS", "Landing"],
-    image: saas,
+    url: "https://linear.app",
     result: "CAC reduzido em 41% após o relançamento",
   },
   {
@@ -64,7 +60,7 @@ const projects: Project[] = [
     category: "Escritório de arquitetura",
     year: "2023",
     tags: ["Portfólio", "Editorial"],
-    image: architecture,
+    url: "https://bjarkeingels.com",
     result: "3 projetos premium fechados em 30 dias",
     offset: true,
   },
@@ -90,27 +86,51 @@ export function Portfolio() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 sm:gap-y-24">
         {projects.map((p) => (
-          <article
-            key={p.title}
-            className={`group cursor-pointer ${p.offset ? "md:mt-24" : ""}`}
-          >
-            <div className="relative bg-mist rounded-xl overflow-hidden aspect-[16/11] mb-6 ring-1 ring-ink/5 transition-all duration-500 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.18)] group-hover:-translate-y-1">
-              <div className="absolute inset-0 bg-ink/[0.03] group-hover:bg-transparent transition-colors duration-500 z-10" />
-              <img
-                src={p.image}
-                loading="lazy"
-                width={1280}
-                height={896}
-                alt={`Site ${p.title} — ${p.category}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              />
+          <article key={p.title} className={`group ${p.offset ? "md:mt-24" : ""}`}>
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative bg-mist rounded-xl overflow-hidden aspect-[16/11] mb-6 ring-1 ring-ink/5 transition-all duration-500 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.18)] group-hover:-translate-y-1"
+              aria-label={`Abrir site ${p.title} em nova aba`}
+            >
+              {/* Preview real do site, escalado para caber no card */}
+              <div className="absolute inset-0 origin-top-left pointer-events-none md:pointer-events-auto">
+                <iframe
+                  src={p.url}
+                  title={`Preview ${p.title}`}
+                  loading="lazy"
+                  sandbox="allow-same-origin allow-scripts"
+                  referrerPolicy="no-referrer"
+                  className="border-0 bg-surface"
+                  style={{
+                    width: "1440px",
+                    height: "990px",
+                    transform: "scale(0.42)",
+                    transformOrigin: "top left",
+                  }}
+                />
+              </div>
+
+              {/* Camada de captura de clique para abrir em nova aba (desativa interação no iframe) */}
+              <div className="absolute inset-0 z-10" aria-hidden />
+
+              {/* Badge de resultado */}
               <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
                 <div className="bg-surface/95 backdrop-blur-md border border-aluminum px-4 py-2.5 rounded-full text-xs font-medium text-ink inline-flex items-center gap-2 shadow-lg">
                   <span className="size-1.5 rounded-full bg-emerald-500" />
                   {p.result}
                 </div>
               </div>
-            </div>
+
+              {/* Indicador "abrir site" */}
+              <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="bg-ink text-canvas text-[10px] uppercase tracking-[0.15em] font-medium px-3 py-1.5 rounded-full">
+                  Abrir site ↗
+                </div>
+              </div>
+            </a>
+
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="font-serif text-2xl sm:text-3xl tracking-tight text-ink">{p.title}</h3>
@@ -133,9 +153,7 @@ export function Portfolio() {
       </div>
 
       <div className="mt-20 sm:mt-24 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-        <p className="text-muted-foreground text-sm">
-          Quer ver seu projeto entre os próximos?
-        </p>
+        <p className="text-muted-foreground text-sm">Quer ver seu projeto entre os próximos?</p>
         <a
           href={whatsappLink()}
           target="_blank"

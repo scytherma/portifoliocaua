@@ -29,14 +29,20 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Vértice — Sites de alta performance para marcas exigentes" },
+      {
+        name: "description",
+        content:
+          "Estúdio especializado em sites de alta conversão. Design minimalista, performance clínica e copy estratégica para marcas que exigem excelência.",
+      },
+      { name: "author", content: "Vértice Studio" },
+      { property: "og:title", content: "Vértice — Sites de alta performance" },
+      {
+        property: "og:description",
+        content: "Sites desenhados para converter. Design minimalista e performance clínica.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {

@@ -31,11 +31,11 @@ const projects: Project[] = [
     offset: true,
   },
   {
-    title: "Aura Diagnostics",
-    category: "Clínica estética premium",
+    title: "Terapeuta Fernanda",
+    category: "Massagista · Terapeuta somática",
     year: "2024",
-    tags: ["Saúde", "Agendamento"],
-    url: "https://www.onemedical.com",
+    tags: ["Bem-estar", "Agendamento"],
+    url: "https://terapeutafernanda.lovable.app",
     result: "+38% de agendamentos online no mês 1",
   },
   {

@@ -9,25 +9,25 @@ const steps = [
     n: "02",
     title: "Estratégia & Copy",
     body: "Defino arquitetura, hierarquia e cada palavra. A copy é escrita antes do design — porque design serve à mensagem, não o contrário.",
-    duration: "Dias 2-5",
+    duration: "Dia 1",
   },
   {
     n: "03",
     title: "Design",
     body: "Layout sob medida, com revisões inclusas. Você aprova cada seção antes de irmos para o desenvolvimento.",
-    duration: "Dias 6-12",
+    duration: "Dia 1-2",
   },
   {
     n: "04",
     title: "Desenvolvimento",
     body: "Código performático, SEO técnico, integrações com WhatsApp e analytics. Tudo testado em múltiplos dispositivos.",
-    duration: "Dias 13-18",
+    duration: "Dia 2-3",
   },
   {
     n: "05",
     title: "Lançamento",
     body: "Subimos no ar, monitoramos a primeira semana e ajustamos o que for necessário. Suporte de 30 dias incluso.",
-    duration: "Dias 19-21",
+    duration: "Dia 3",
   },
 ];
 
@@ -41,7 +41,7 @@ export function Process() {
               Processo
             </p>
             <h2 className="font-serif text-4xl sm:text-5xl tracking-tight text-ink text-balance leading-[1.05] mb-6">
-              Do briefing ao ar em <span className="italic text-muted-foreground/70">21 dias</span>.
+              Do briefing ao ar em <span className="italic text-muted-foreground/70">1 a 3 dias</span>.
             </h2>
             <p className="text-muted-foreground leading-relaxed text-pretty">
               Sem etapas misteriosas, sem prazos elásticos. Você sabe exatamente onde estamos e o que vem

@@ -13,7 +13,7 @@ export function CTA() {
         </h2>
 
         <p className="text-muted-foreground text-lg max-w-xl mb-10 text-pretty">
-          Me conta sobre o seu projeto pelo WhatsApp. Em até 2 horas úteis você recebe minha resposta
+          Me conta sobre o seu projeto pelo WhatsApp. Em até 10 minutos você recebe minha resposta
           com próximos passos — sem formulário, sem robô, sem enrolação.
         </p>
 
@@ -28,7 +28,7 @@ export function CTA() {
         </a>
 
         <p className="mt-6 text-xs text-muted-foreground tracking-wide">
-          3 vagas abertas neste mês · Resposta em até 2h úteis
+          3 vagas abertas nesta semana · Resposta em até 10 minutos
         </p>
       </div>
     </section>

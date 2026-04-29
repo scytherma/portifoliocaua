@@ -14,7 +14,7 @@ export function Hero() {
           <span className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-75" />
           <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
         </span>
-        3 vagas abertas neste mês
+        3 vagas abertas nesta semana
       </div>
 
       <h1 className="reveal reveal-delay-1 font-serif text-[3.25rem] sm:text-[5rem] md:text-[6.5rem] leading-[0.95] tracking-[-0.02em] text-ink text-balance mb-6 sm:mb-8">
@@ -45,7 +45,7 @@ export function Hero() {
       </div>
 
       <p className="reveal reveal-delay-4 mt-8 text-xs text-muted-foreground tracking-wide">
-        Resposta em até 2 horas úteis · Sem compromisso
+        Resposta em até 10 minutos · Sem compromisso
       </p>
     </section>
   );

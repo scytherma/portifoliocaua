@@ -15,11 +15,11 @@ type Project = {
 // O preview carrega o site dentro de um iframe — o visitante pode rolar e interagir.
 const projects: Project[] = [
   {
-    title: "Terapeuta Fernanda",
+    title: "Terapeuta Mara Diniz",
     category: "Massagista · Terapeuta somática",
     year: "2024",
     tags: ["Bem-estar", "Agendamento"],
-    url: "https://terapeutafernanda.lovable.app",
+    url: "https://maradiniz.lovable.app/",
     result: "+38% de agendamentos online no mês 1",
   },
   {
